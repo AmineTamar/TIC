@@ -26,7 +26,7 @@ function boxClicked(e) {
 
     if (playerHasWon() !== false) {
       gameInProgress = false; 
-      playerText.innerText = `${currentPlayer} has won!`;
+      playerText.innerText = `${currentPlayer} hat gewonnen!`;
       let winning_blocks = playerHasWon();
       winning_blocks.map(box => boxes[box].style.backgroundColor = winnerIndicator);
 
@@ -42,7 +42,7 @@ function boxClicked(e) {
     }
 
     currentPlayer = currentPlayer == X_TEXT ? O_TEXT : X_TEXT;
-    playerText.innerText = `Player ${currentPlayer} Turn`;
+    playerText.innerText = `Player ${currentPlayer} ist dran`;
   }
 }
 
