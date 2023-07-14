@@ -94,7 +94,7 @@ function resetBoard() {
   });
 
   currentPlayer = X_TEXT;
-  playerText.innerText = `Player ${currentPlayer} Turn`;
+  playerText.innerText = `Spieler ${currentPlayer} ist dran`;
 
   gameInProgress = true;
   moveCount = 0;
