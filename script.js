@@ -13,6 +13,7 @@ let player2Score = 0;
 let currentPlayer = X_TEXT;
 let spaces = Array(9).fill(null);
 let gameInProgress = true;
+let moveCount = 0;
 
 const startGame = () => {
   boxes.forEach(box => box.addEventListener('click', boxClicked));
@@ -24,9 +25,11 @@ function boxClicked(e) {
     spaces[id] = currentPlayer;
     e.target.innerText = currentPlayer;
 
+    moveCount++;
+
     if (playerHasWon() !== false) {
       gameInProgress = false; 
-      playerText.innerText = `${currentPlayer} hat gewonnen!`;
+      playerText.innerText = `${currentPlayer}  hat gewonnen!`;
       let winning_blocks = playerHasWon();
       winning_blocks.map(box => boxes[box].style.backgroundColor = winnerIndicator);
 
@@ -39,10 +42,14 @@ function boxClicked(e) {
       }
 
       return;
+    } else if (moveCount === 9) {
+      gameInProgress = false;
+      playerText.innerText = "Unentschieden";
+      return;
     }
 
     currentPlayer = currentPlayer == X_TEXT ? O_TEXT : X_TEXT;
-    playerText.innerText = `Player ${currentPlayer} ist dran`;
+    playerText.innerText = `Spieler ${currentPlayer} ist dran`;
   }
 }
 
@@ -90,6 +97,7 @@ function resetBoard() {
   playerText.innerText = `Player ${currentPlayer} Turn`;
 
   gameInProgress = true;
+  moveCount = 0;
 }
 
 startGame();
