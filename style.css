@@ -12,7 +12,7 @@ body{
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: rgb(255, 255, 255);
+  background-color: #dff9fb
 }
 #gameboard{
   display: grid;
@@ -21,13 +21,13 @@ body{
 
 }
 h1{
-  color: greenyellow;
+  color: rgb(37, 37, 37);
 }
 .box{
   color: white;
-  margin: 10px;
+  margin: 4px;
   background-color:  #74B01A;
-  font-size: 3em;
+  font-size: 4em;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -43,15 +43,23 @@ h1{
   justify-content: center;
 
 }
-#restartBtn{
+#restartBtn,
+#resetBoardBtn {
   background-color: #C0DD11;
   color: black;
   padding: 10px;
   border-radius: 5px;
-  border:none;
-  
+  border: none;
+  margin-top: 10px;
 }
-#restartBtn:hover{
-  background-color:#74B01A;;
-      transition: 0.6s;
+.score {
+  background-color: #C0DD11;
+  padding: 10px;
+  margin: 20px;
+}
+
+#restartBtn:hover,
+#resetBoardBtn:hover {
+  background-color: #74B01A;
+  transition: 0.6s;
 }
