@@ -5,6 +5,7 @@ let boxes = Array.from(document.getElementsByClassName('box'));
 
 let winnerIndicator = getComputedStyle(document.body).getPropertyValue('--winning-blocks');
 
+
 const O_TEXT = "O";
 const X_TEXT = "X";
 
@@ -14,6 +15,7 @@ let currentPlayer = X_TEXT;
 let spaces = Array(9).fill(null);
 let gameInProgress = true;
 let moveCount = 0;
+let lastMoveSound;
 
 const startGame = () => {
   boxes.forEach(box => box.addEventListener('click', boxClicked));
@@ -24,8 +26,21 @@ function boxClicked(e) {
   if (gameInProgress && !spaces[id]) {
     spaces[id] = currentPlayer;
     e.target.innerText = currentPlayer;
+    e.target.classList.add('pencil-like'); // Apply pencil-like font class
 
     moveCount++;
+
+    if (lastMoveSound && !lastMoveSound.paused) {
+      lastMoveSound.pause(); // Pause the previous audio
+      lastMoveSound.currentTime = 0; // Reset the playback position
+    }
+     // Play the sound effect
+     const moveSound = document.getElementById('moveSound');
+     moveSound.play();
+
+     lastMoveSound = moveSound;
+ 
+    
 
     if (playerHasWon() !== false) {
       gameInProgress = false; 
@@ -68,6 +83,9 @@ function playerHasWon() {
   for (const condition of winCondition) {
     let [a, b, c] = condition;
     if (spaces[a] && (spaces[a] == spaces[b] && spaces[a] == spaces[c])) {
+       // Play the winning sound effect
+    const winSound = document.getElementById('winSound');
+    winSound.play();
       return [a, b, c];
     }
   }

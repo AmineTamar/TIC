@@ -1,18 +1,28 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+
 *{
   padding: 0;
   margin: 0;
   box-sizing: border-box;
 }
+
+.pencil-like {
+  font-family: 'Patrick Hand SC', cursive;
+}
+
 :root{
 
   --winning-blocks:rgb(131, 44, 44);
 }
 
 body{
+  font-family: 'Poppins', sans-serif;
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #dff9fb
+  background-color: #f8f9fa;
+  color: #333;
 }
 #gameboard{
   display: grid;
@@ -21,7 +31,7 @@ body{
 
 }
 h1{
-  color: rgb(37, 37, 37);
+  color: #333;
 }
 .box{
   color: white;
@@ -46,7 +56,7 @@ h1{
 #restartBtn,
 #resetBoardBtn {
   background-color: #C0DD11;
-  color: black;
+  color: #333;
   padding: 10px;
   border-radius: 5px;
   border: none;
