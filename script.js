@@ -36,6 +36,7 @@ function boxClicked(e) {
     }
      // Play the sound effect
      const moveSound = document.getElementById('moveSound');
+     moveSound.volume =0.2;
      moveSound.play();
 
      lastMoveSound = moveSound;
@@ -85,6 +86,7 @@ function playerHasWon() {
     if (spaces[a] && (spaces[a] == spaces[b] && spaces[a] == spaces[c])) {
        // Play the winning sound effect
     const winSound = document.getElementById('winSound');
+    winSound.volume =0.5;
     winSound.play();
       return [a, b, c];
     }
